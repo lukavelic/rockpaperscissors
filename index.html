@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ROCK PAPER SCISSORS
+
+        const signs = ['rock', 'paper', 'scissors'];
+   
+        // Randomly selects string in signs array
+        function computerPlay(signs){
+            return signs[Math.floor(Math.random()*3)];
+        }
+
+        let userScore = 0;
+        let computerScore = 0;
+
+        function round(){
+
+            // Calls the function for computer to choose
+            let computerChoice = computerPlay(signs);
+            // Prompts the user to choose
+            let userChoice = prompt('Please type Rock, Paper or Scissors to play.').toLowerCase();
+
+            // Test if user choice is correct
+            if(signs.includes(userChoice)){
+                // none
+                } else{
+                    alert('You did not choose a valid choice.')
+                }
+            // Test for tie
+            if(userChoice == computerChoice){
+                alert('The game is a tie');
+            }
+            // Test for user rock
+            if(userChoice == 'rock' && computerChoice == 'paper'){
+                alert('You chose Rock and the computer chose Paper. Computer wins!');
+                computerScore = computerScore + 1;
+            } else {
+                if(userChoice == 'rock' && computerChoice == 'scissors'){
+                    alert('You chose Rock and the computer chose Scissors. You win!');
+                    userScore = userScore + 1;
+                    }
+                }
+            // Test for user paper
+            if(userChoice == 'paper' && computerChoice == 'rock'){
+                alert('You chose Paper and the computer chose Rock. You win!');
+                userScore = userScore + 1;
+            } else {
+                if(userChoice == 'paper' && computerChoice == 'scissors'){
+                    alert('You chose Paper and the computer chose Scissors. Computer wins!');
+                    computerScore = computerScore + 1;
+                    }
+                }
+            //  Test for user scissors
+            if(userChoice == 'scissors' && computerChoice == 'rock'){
+                alert('You chose Scissors and the computer chose Rock. Computer wins!');
+                computerScore = computerScore + 1;
+            } else {
+                if(userChoice == 'scissors' && computerChoice == 'paper'){
+                    alert('You chose Paper and the computer chose Paper. You win!');
+                    userScore = userScore + 1;
+                    }   
+                }
+            alert(`Score - User ${userScore} : Computer ${computerScore}`)
+        }
+        
+        // Loops round() until score is 5
+        function game(){
+            for(let count = 0; userScore <5 && computerScore <5; count++){
+                round();
+                if(userScore == 5){
+                    alert('Congratulations, you won!');
+                }
+                if(computerScore == 5){
+                    alert('The computer is superior!');
+                }
+            }
+        }
+
+        game();
+        
+        
+
+        /*
+
+
+        // User chooses rock tests
+        
+        if(userChoice == 'rock' && computerChoice == 'rock'){
+            alert('You chose Rock and the computer chose Rock. It is a tie.')
+        }
+
+        if(userChoice == 'rock' && computerChoice == 'paper'){
+            alert('You chose Rock and the computer chose Paper. Computer wins!')
+        }
+
+        if(userChoice == 'rock' && computerChoice == 'scissors'){
+            alert('You chose Rock and the computer chose Scissors. You win!')
+        }
+
+        // User chooses paper tests
+
+        if(userChoice == 'paper' && computerChoice == 'paper'){
+            alert('You chose Paper and the computer chose Paper. It is a tie.')
+        }
+
+        if(userChoice == 'paper' && computerChoice == 'rock'){
+            alert('You chose Paper and the computer chose Rock. You win!')
+        }
+
+        if(userChoice == 'paper' && computerChoice == 'scissors'){
+            alert('You chose Paper and the computer chose Scissors. Computer wins!')
+        }
+
+        // User chooses scissors tests
+
+        if(userChoice == 'scissors' && computerChoice == 'scissors'){
+            alert('You chose Scissors and the computer chose Scissors. It is a tie.')
+        }
+
+        if(userChoice == 'scissors' && computerChoice == 'rock'){
+            alert('You chose Scissors and the computer chose Rock. Computer wins!')
+        }
+
+        if(userChoice == 'scissors' && computerChoice == 'paper'){
+            alert('You chose Scissors and the computer chose Paper. You win!')
+        }
+
+        */
+    </script>
+</body>
+</html>
